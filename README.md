@@ -13,3 +13,9 @@ To inspect the UI, use the sprite-style.json and sprite-atlas fixtures from the 
 Full feature verification: 199 official E2E tests and 55 unit tests pass, ESLint/SCSS lint/type-checked production build pass. The thumbnail assertion fails on the unmodified base. Deliberately wrong expected pixels and a disabled stale-response guard also fail, and those mutations were restored before the successful full run.
 
 This isolated artifact branch is not part of the feature PR's source diff.
+
+## Usage video
+
+[Watch the 36-second MP4](usage-demo.mp4) (1280×900, H.264, no audio). Recorded at feature commit945ac551cd8df205e1d71d35622907ae0565a11e using the actual UI and authored assets served as real local files, without route mocks.
+
+The video shows searching/selecting an icon, changing the Sprite URL in Style Settings from the first atlas to a second atlas, and changing it back. Both the autocomplete list and thumbnails update; the selected symbol is rendered on the map. The recording scenario also checks the stored URL/ID and actual preview pixels. This demonstrates URL/source changes; it does not claim automatic detection of files changing behind an unchanged URL.
