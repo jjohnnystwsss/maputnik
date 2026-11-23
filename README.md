@@ -1,0 +1,15 @@
+# Maputnik #1294 sprite picker visuals
+
+UI screenshots produced with the authored MIT-licensed sprite fixtures in the feature commit. No external map, tile, sprite service or personal data is used.
+
+- before.png: unmodified upstream 2296b77c37f650a20f81f94d586b8634e4a7a4cb; four text options without previews.
+- after.png: feature 945ac551cd8df205e1d71d35622907ae0565a11e; ordinary/SDF/retina previews in a searchable menu.
+- after-sdf.png: SDF preview alongside the actual MapLibre render of the selected fixture. The catalog uses a neutral black silhouette, not a simulation of data/zoom-dependent paint or halos.
+
+Environment: Node 26.13.1, npm 11.20.0, Playwright 1.65.1 / Chromium 159.0.8154.6, software WebGL using the project's test settings.
+
+To inspect the UI, use the sprite-style.json and sprite-atlas fixtures from the feature's e2e/fixtures directory, with its existing MaputnikDriver response mocks. Open the symbols layer, scroll icon-image into view and clear the field to show all four options. Select sdf-circle for the final view. For the historical visual control, use the same sprite URL without the query parameter so that the older metadata loader also lists the four options.
+
+Full feature verification: 199 official E2E tests and 55 unit tests pass, ESLint/SCSS lint/type-checked production build pass. The thumbnail assertion fails on the unmodified base. Deliberately wrong expected pixels and a disabled stale-response guard also fail, and those mutations were restored before the successful full run.
+
+This isolated artifact branch is not part of the feature PR's source diff.
